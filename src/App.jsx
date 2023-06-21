@@ -1,27 +1,66 @@
 import { useState } from "react";
-// Write your Color component here
+import "./index.css";
 
-const Color = ({ color, setSelectedColor }) => {
-  return <div className={color} onClick={() => setSelectedColor(color)}></div>;
+const Color = ({ color, selectedColor, setSelectedColor }) => {
+  const handleClick = () => {
+    setSelectedColor(color);
+  };
+
+  const className = selectedColor === color ? `${color} selected` : color;
+
+  return <div className={className} onClick={handleClick}></div>;
 };
 
 const App = () => {
   const [selectedColor, setSelectedColor] = useState("");
+
   return (
     <div id="container">
       <div id="navbar">
-        <div>your selection is: </div>
-        <div className={selectedColor}>{selectedColor}</div>
+        <div>here is your selected color: </div>
+        <div className={`selected ${selectedColor}`}>{selectedColor}</div>
       </div>
       <div id="colors-list">
-        <Color color="green" setSelectedColor={setSelectedColor} />
-        <Color color="blue" setSelectedColor={setSelectedColor} />
-        <Color color="violet" setSelectedColor={setSelectedColor} />
-        <Color color="red" setSelectedColor={setSelectedColor} />
-        <Color color="white" setSelectedColor={setSelectedColor} />
-        <Color color="yellow" setSelectedColor={setSelectedColor} />
-        <Color color="black" setSelectedColor={setSelectedColor} />
-        <Color color="orange" setSelectedColor={setSelectedColor} />
+        <Color
+          color="green"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="blue"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="violet"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="red"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="white"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="yellow"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="black"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        <Color
+          color="orange"
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
       </div>
     </div>
   );
